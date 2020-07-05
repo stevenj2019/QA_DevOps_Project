@@ -9,14 +9,14 @@ class TestBase(TestCase):
         return app
 
 class TestResponse(TestBase):
-    def test_slot():
+    def test_slot(self):
         opts = ['coin', 'clover', '7', 'horseshoe']
         for i in range(0, 4):
             with patch('random.randint') as r:
                 r.return_value = i
                 self.assertEqual(slot(), opts[i])
         
-    def test_machine():
+    def test_machine(self):
         with patch('slot') as s: 
             s.return_value = ['coin', 'coin', 'coin']
 

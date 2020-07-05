@@ -8,7 +8,7 @@ class TestBase(TestCase):
         return app
 
 class TestResponse(TestBase):
-    def test_multi():
+    def test_multi(self):
         with patch('multi') as m: 
             m.return_value.text = '2'
 

@@ -127,6 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-README_rss/.DS_Store
-.vscode/settings.json
+
+#other annoying files to ignore
+.vscode/
 README_rss/.DS_Store
