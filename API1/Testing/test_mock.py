@@ -20,5 +20,5 @@ class TestResponse(TestBase):
         with patch('slot') as s: 
             s.return_value = ['coin', 'coin', 'coin']
 
-            response = self.client.get(url_for('main'))
+            response = self.client.get(url_for('machine'))
             self.assertEqual(s.return_value, response)
