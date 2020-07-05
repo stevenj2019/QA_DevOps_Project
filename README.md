@@ -18,7 +18,7 @@
 
 ![](README_rss/init_risk_matrix.png) 
 
-This is the inital risk matrix, this was detemrine by risks we could already determine and already resolve. this will be a document that will be iterated throughout the project 
+This is the initial risk matrix, this was determine by risks we could already determine and already resolve. this will be a document that will be iterated throughout the project 
 
 ## Gathering User Requirements 
 
@@ -42,20 +42,20 @@ Here is the flowchart for high level overview of the application
 
 ## Main Service Spec 
 
-The Main Service serves the Jinja2 pages to the user, it will then utilitise the API's
+The Main Service serves the Jinja2 pages to the user, it will then utilise the API's
 It will also persist data to the SQL Database 
 
 ## Service 2 spec - slot machine Spec 
 
 ![](README_rss/service-2-flow.png)
 
-The Slot Machine API will generate 3 results randomally (like a slot machine would normallly), it will then give this information to the Main Service for it to be rendered by Jinja2
+The Slot Machine API will generate 3 results randomly (like a slot machine would normally), it will then give this information to the Main Service for it to be rendered by Jinja2
 
 ## Service 3 spec - slot machine multiplier Spec 
 
 ![](README_rss/service-3-flow.png)
 
-The Slot Machine Multilier API will determine a random multipliar, at first it will be entirely random however in further iterations this will favour older accounts more than younger ones 
+The Slot Machine Multiplier API will determine a random multiplier, at first it will be entirely random however in further iterations this will favour older accounts more than younger ones 
 
 ## Service 4 spec - amount calculator
 
@@ -79,7 +79,7 @@ the build will focus on building the images such as:
 
 Testing will utilise multiple technologies as long with methods: 
 
-+ Pytest (mocking API's, unittesting)
++ Pytest (mocking API's, unittest)
 + Selenium (Integration Testing)
 
 Deployment will make use of Docker Swarm. This will allow us to build application redundancy. This will also allow us to build rolling updates 
@@ -92,7 +92,7 @@ In This Sprint we aim to build the essential software functionality. We Do this 
 
 ![](README_rss/sprint_1_trello.png)
 
-Eberything which is red defines the MVP (or Minimum Viable Product), Which means ones this is done the iterations are docussed more on improvement, as you can see from the above image all the must haves should be completed by the end of the first sprint
+Everything which is red defines the MVP (or Minimum Viable Product), Which means ones this is done the iterations are focussed more on improvement, as you can see from the above image all the must haves should be completed by the end of the first sprint
 
 ## Changes
 
@@ -100,6 +100,6 @@ Eberything which is red defines the MVP (or Minimum Viable Product), Which means
 
 ## Test Coverage 
 
-## Risk Assestment 
+## Risk Assessment 
 
 ## Success and other changes 
