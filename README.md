@@ -10,11 +10,11 @@
 # Helpful Links 
 
 + Trello Board [here](https://trello.com/b/02kJOwrM/devopsproject)
-+ Risk Assestment [here](https://docs.google.com/spreadsheets/d/1e9dNWcu6ro9YcTkmCDNhyVzRHGwjEr3RxXqMkqxVKZE/edit?usp=sharing)
++ Risk Assessment [here](https://docs.google.com/spreadsheets/d/1e9dNWcu6ro9YcTkmCDNhyVzRHGwjEr3RxXqMkqxVKZE/edit?usp=sharing)
 
 # Planning Stage 
 
-## Preliminary Risk Assestment 
+## Preliminary Risk Assessment 
 
 ![](README_rss/init_risk_matrix.png) 
 
