@@ -1,4 +1,4 @@
-from code.API2 import app
+from Code.API2 import app
 from unittest.mock import patch
 from flask import url_for
 from flask_testing import TestCase
