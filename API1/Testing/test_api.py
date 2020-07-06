@@ -1,4 +1,3 @@
-import requests
 from api import app
 import unittest
 from unittest.mock import patch

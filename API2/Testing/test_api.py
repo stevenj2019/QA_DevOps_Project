@@ -11,6 +11,5 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
     def test_multi(self):
         response= int(self.client.get('/get/multi').get_json()['multiply'])
-        print(response)
         assert response >= 0 and response <= 5
         
