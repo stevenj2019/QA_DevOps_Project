@@ -100,6 +100,24 @@ Everything which is red defines the MVP (or Minimum Viable Product), Which means
 
 ## Test Coverage 
 
+Test 1 Coverage is within the Issues due to a problem discovered during testing. 
+
+Test 2 Coverage is below: 
+
+![](README_rss/sprint_1_test_3.png)
+
+Test 3 Coverage is below:
+
+![](README_rss/sprint_1_test_4.png)
+
+## Issues 
+
+Due to how the application was coded the test will return a different percentage each time. This will be amended in the next sprint
+
+![](README_rss/sprint_1_test_1.png)
+
+![](README_rss/sprint_1_test_2.png)
+
 ## Risk Assessment 
 
 ## Success and other changes 
