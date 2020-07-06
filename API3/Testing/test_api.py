@@ -10,5 +10,9 @@ class TestBase(TestCase):
 
 class TestResponse(TestBase):
     def test_api(self):
-        response = self.client.post('/get/total', json={'slot':25, 'multiple':3}).get_json()['TOTAL']
-        assert response == 75
+        assert self.client.post('/get/total', json={'slot':['coin', 'coin', '7'], 'multiple':3}).get_json()['TOTAL'] == 300
+        assert self.client.post('/get/total', json={'slot':['coin', 'coin', 'coin'], 'multiple':3}).get_json()['TOTAL'] == 450
+        assert self.client.post('/get/total', json={'slot':['clover', 'horseshoe', 'clover'], 'multiple':2}).get_json()['TOTAL'] == 100
+        assert self.client.post('/get/total', json={'slot':['7', '7', 'clover'], 'multiple':4}).get_json()['TOTAL'] == 80
+        assert self.client.post('/get/total', json={'slot':['clover', 'horseshoe', 'horseshoe'], 'multiple':2}).get_json()['TOTAL'] == 20
+        assert self.client.post('/get/total', json={'slot':['clover', 'horseshoe', '7'], 'multiple':2}).get_json()['TOTAL'] == 0
