@@ -11,16 +11,7 @@ class TestBase(TestCase):
 
 class TestResponse(TestBase):
 
-    #def test_slot(self):
-        #opts = ['coin', 'clover', '7', 'horseshoe']
-        #for i in range(0, 4):
-            #with patch('random.randint') as r:
-                #r.return_value = int(i)
-                #self.assertEqual(slot(), opts[i])
-        
     def test_machine(self):
-        #with patch('api.slot') as s: 
-            #s.return_value = ['coin', 'coin', 'coin']
-
-        response = requests.get('http://localhost:5000/get/slot')
-        self.assertEqual(s.return_value, response['machine'])
+        answers = ['coin', 'clover', '7', 'horseshoe']
+        response = self.client.get('/get/slot').get_json()
+        assert response['machine'][0] in answers
