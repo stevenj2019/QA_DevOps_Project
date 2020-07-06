@@ -100,6 +100,12 @@ Everything which is red defines the MVP (or Minimum Viable Product), Which means
 
 ## Test Coverage 
 
+Due to how the application was coded the test will return a different percentage each time. This will be amended in the next sprint
+
+![](README_rss/sprint_1_test_1.png)
+
+![](README_rss/sprint_1_test_2.png)
+
 ## Risk Assessment 
 
 ## Success and other changes 
