@@ -104,7 +104,11 @@ Test 1 Coverage is within the Issues due to a problem discovered during testing.
 
 Test 2 Coverage is below: 
 
-![](README_rss/sprint_2_test.png)
+![](README_rss/sprint_1_test_3.png)
+
+Test 3 Coverage is below:
+
+![](README_rss/sprint_1_test_4.png)
 
 ## Issues 
 
