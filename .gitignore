@@ -131,6 +131,7 @@ dmypy.json
 #other annoying files to ignore
 .vscode/
 README_rss/.DS_Store
+.DS_Store
 
 #temp entries 
 ansible/
