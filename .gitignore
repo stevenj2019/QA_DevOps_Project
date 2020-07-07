@@ -132,6 +132,7 @@ dmypy.json
 .vscode/
 README_rss/.DS_Store
 .DS_Store
+ENV_VARS.txt
 
 #temp entries 
 ansible/
