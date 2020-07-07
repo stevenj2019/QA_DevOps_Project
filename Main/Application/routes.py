@@ -35,12 +35,21 @@ def login():
 
 @login_required
 @app.route('/home', methods=['GET'])
-def home()
+def home():
 
 @login_required
-@app.route('/edit/user', methods=['GET', 'POST'])
-def edit():
+@app.route('/topup', methods=['GET', 'POST'])
+def topup():
     return render_template('')
+
+@login_required
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    user = User.query.filter_by(id=current_user.id).first()
+    logout_user()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for('register'))
 
 @login_required
 @app.route('/slots', methods=['GET'])
