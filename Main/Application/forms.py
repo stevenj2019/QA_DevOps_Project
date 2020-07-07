@@ -18,12 +18,3 @@ class RegisterForm(FlaskForm):
         ]
     )
     submit = SubmitField('Submit')
-
-class LoginForm(FlaskForm):
-    email = StringField('Email Address', 
-        validators=[
-            DataRequired(),
-            Email()
-        ]
-    )
-    submit = SubmitField('play')

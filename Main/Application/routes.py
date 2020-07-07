@@ -12,20 +12,37 @@ def main():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        REGDATA=User(email=form.email.data, password=crypt.generate_password_hash(form.password.data))
-        db.session.add(REGDATA)
+        DATA=User(email=form.email.data, password=crypt.generate_password_hash(form.password.data))
+        db.session.add(DATA)
         db.session.commit
         return redirect(url_for('login'))
     return render_template('register.html', title='register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('')
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and crypt.check_password_hash(user.password, form.password.data):
+            login_user(user)
+            if request.args.get('next'):
+                return redirect(request.args.get('next'))
+            else:
+                return redirect(url_for('home'))
+    return render_template('login.html', title='login', form=form)
 
+@login_required
+@app.route('/home', methods=['GET'])
+def home()
+
+@login_required
 @app.route('/edit/user', methods=['GET', 'POST'])
 def edit():
     return render_template('')
 
+@login_required
 @app.route('/slots', methods=['GET'])
 def slots():
     user = User.query.filter_by(id=current_user.id).first()
@@ -40,5 +57,6 @@ def slots():
     db.session.commit()
     return render_template('slots.html', machine = slot_data, multi = multi_data, balance = user.balance, win = win)   
 
+@login_required
 @app.route('/logout')
 def logout():
