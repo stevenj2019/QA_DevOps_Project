@@ -36,11 +36,16 @@ def login():
 @login_required
 @app.route('/home', methods=['GET'])
 def home():
+    return render_template('home.html', title='home')
 
 @login_required
 @app.route('/topup', methods=['GET', 'POST'])
 def topup():
-    return render_template('')
+    form = TopUpForm()
+    if form.validate_on_submit:
+        current_user.balance = current_user.balance + form.cash.data
+        db.session.commit()
+    return render_template('topup.html', title='Top-Up account', form = form)
 
 @login_required
 @app.route('/delete', methods=['GET', 'POST'])
