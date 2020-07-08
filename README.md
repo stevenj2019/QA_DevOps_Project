@@ -170,3 +170,9 @@ This provided numerous benefits.
 + Testing Issue Resolved (see below)
 
 ![](README_rss/API_1_test.png)
+
+as well as this some other things were changed
+
++ Application.models.RegisterForm changed to Application.models.UserForm. Due to being reused in other parts of the application
++ In Testing url_for() is now used consistently 
++ one-line functions used where possible

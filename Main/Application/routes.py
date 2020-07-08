@@ -1,16 +1,15 @@
 from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from Application import app, db, login_manager, crypt
-from Application.forms import RegisterForm, TopUpForm
+from Application.forms import UserForm, TopUpForm
 from Application.models import User
 import requests
 
 @app.route('/register', methods=['GET', 'POST']) #write functionality
 def register():
-    form = RegisterForm()
+    form = UserForm()
     if form.validate_on_submit():
-        DATA=User(email=form.email.data, password=crypt.generate_password_hash(form.password.data))
-        db.session.add(DATA)
+        db.session.add(User(email=form.email.data, password=crypt.generate_password_hash(form.password.data)))
         db.session.commit
         return redirect(url_for('login'))
     return render_template('register.html', title='register', form=form)
@@ -19,7 +18,7 @@ def register():
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    form = RegisterForm()
+    form = UserForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and crypt.check_password_hash(user.password, form.password.data):

@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, ValidationError
 from Application.models import User
 from flask_login import current_user
 
-class RegisterForm(FlaskForm):
+class UserForm(FlaskForm):
     email = StringField('Email Address', 
         validators=[
             DataRequired(), 
