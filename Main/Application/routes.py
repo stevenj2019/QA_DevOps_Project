@@ -1,12 +1,9 @@
 from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from Application import app, db, login_manager, crypt
-from Application.forms import RegisterForm
+from Application.forms import RegisterForm, TopUpForm
 from Application.models import User
-
-@app.route('/')
-def main():
-    return redirect(url_for('login'))
+import requests
 
 @app.route('/register', methods=['GET', 'POST']) #write functionality
 def register():
@@ -43,8 +40,8 @@ def home():
 @login_required
 def topup():
     form = TopUpForm()
-    if form.validate_on_submit:
-        current_user.balance = current_user.balance + form.cash.data
+    if form.validate_on_submit():
+        current_user.balance = current_user.balance + int(form.cash.data)
         db.session.commit()
     return render_template('topup.html', title='Top-Up account', form = form)
 
@@ -62,9 +59,9 @@ def delete():
 @login_required
 def slots():
     user = User.query.filter_by(id=current_user.id).first()
-    slot_data = self.client.get('http://api_1/get/slot').get_json()['machine'] # is a list
-    multi_data = self.client.get('http://api_2/get/multi').get_json()['multiply'] # is a string
-    slot_value = self.client.post('http://api_3/get/total', json={'slot':slot_data, 'multiple':multi_data}).get_json()['TOTAL'] # is an int
+    slot_data = requests.get('http://api_1/get/slot').get_json()['machine'] # is a list
+    multi_data = requests.get('http://api_2/get/multi').get_json()['multiply'] # is a string
+    slot_value = requests.post('http://api_3/get/total', json={'slot':slot_data, 'multiple':multi_data}).get_json()['TOTAL'] # is an int
     win = (slot_value != 0)
     if win == False:
         user.balance = user.balance - 1

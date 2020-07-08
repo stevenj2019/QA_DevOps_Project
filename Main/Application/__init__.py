@@ -11,6 +11,6 @@ app.config['SECRET_KEY'] = str(os.getenv('PROD_SKEY'))
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 crypt = Bcrypt(app)
-login_manager.login_view = 'main'
+login_manager.login_view = 'login'
 
 from Application import routes 
