@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from flask import url_for, request
+from flask import url_for, request, jsonify
 from flask_testing import TestCase
 from flask_login import login_user, current_user, logout_user
 import requests
@@ -90,11 +90,13 @@ class TestRoutes(TestBase):
 
     def test_slots(self):
         self.assertRedirects(self.client.get(url_for('slots')), url_for('login')+'?next=%2Fslots')
-        with self.client:
-            user_login(self)
-            with patch('requests.get') as 1:
-                p.return_value=['coin', 'coin', 'coin']
-            with patch()
+        #with self.client:
+            #user_login(self)
+            #with patch('requests.get') as API_1:
+                #API_1.return_value = jsonify({'machine':['coin', 'coin', 'coin']})
+                #with patch('requests.get') as API_2:
+                    #API_2.return_value = jsonify({'multiply':2})
+                    #self.assertIn(b'300', self.client.get(url_for('slots')))
 
     def test_delete(self):
         with self.client:

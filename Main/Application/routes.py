@@ -59,8 +59,8 @@ def delete():
 @login_required
 def slots():
     user = User.query.filter_by(id=current_user.id).first()
-    slot_data = requests.get('http://api_1/get/slot').get_json()['machine'] # is a list
-    multi_data = requests.get('http://api_2/get/multi').get_json()['multiply'] # is a string
+    slot_data = requests.get('http://api_1/get/slot').json['machine']
+    multi_request = requests.get('http://api_2/get/multi').json['multiply']
     slot_value = requests.post('http://api_3/get/total', json={'slot':slot_data, 'multiple':multi_data}).get_json()['TOTAL'] # is an int
     win = (slot_value != 0)
     if win == False:
