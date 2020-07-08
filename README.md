@@ -176,3 +176,11 @@ as well as this some other things were changed
 + Application.models.RegisterForm changed to Application.models.UserForm. Due to being reused in other parts of the application
 + In Testing url_for() is now used consistently 
 + one-line functions used where possible
+
+we also made a change to the win function within API3. 
+
+This is to allow the slot machine to be easily extended to 4/5 wheel machines as oppose to the current 3 
+
+![](README_rss/API_3_before.png)
+
+![](README_rss/API_3_after.png)
