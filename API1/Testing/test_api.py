@@ -12,5 +12,5 @@ class TestResponse(TestBase):
 
     def test_machine(self):
         answers = ['coin', 'clover', '7', 'horseshoe']
-        response = self.client.get('/get/slot').get_json()
-        assert response['machine'][0] in answers
+        #response = self.client.get('/get/slot').get_json()
+        assert self.client.get('/get/slot').get_json()['machine'][0] in answers

@@ -40,6 +40,10 @@ Here is the flowchart for high level overview of the application
 
 ![](README_rss/init_data_struct.png)
 
+## Entity Diagram
+
+![](README_rss/Entity_Diagram.png)
+
 ## Main Service Spec 
 
 The Main Service serves the Jinja2 pages to the user, it will then utilise the API's
@@ -110,6 +114,10 @@ Test 3 Coverage is below:
 
 ![](README_rss/sprint_1_test_4.png)
 
+Main Service Coverage is below:
+
+![](README_rss/sprint_1_test_5.png)
+
 ## Issues 
 
 Due to how the application was coded the test will return a different percentage each time. This will be amended in the next sprint
@@ -120,4 +128,22 @@ Due to how the application was coded the test will return a different percentage
 
 ## Risk Assessment 
 
+During This Sprint, Some new errors have became of interest. as well as this some previously known issues have been readdressed. 
+
+
+![](README_rss/risk_matrix_1.png)
+
+so as you can see we have revisited SSH Access and Path Traversal. SSH Access while Firewalls are effective they can restrict those with legitimate access. with the use of PKI (Public Ket Infrastructure) we can secure our environments while still allowing CI Pipeline Servers to communicate in a way that required no human interaction. 
+
+Due to the Issue we experienced during Testing we have added potentially automation Issues. rather than just dry running the application. in future we will deploy with docker and use Integration tests to ensure no bad code makes its way into a production environment. 
+
+
 ## Success and other changes 
+
++ Created a CRUD Application, Testing above 80%
++ 3 Micro-Services to compliment the app. Testing 100% (with the exception on Service 1)
+
+## Limitations
+
++ Due to initial design on service 1 pytest does not provide accurate coverage, While this has been confirmed to work, This Code will require refactoring during the next sprint to amend
++ Due to deployment not yet being implemented. Testing is non-existent within the Main Service. While the test case is written (commented out under Main/Testing/test_unit.py). We cannot confirm functionality. Manual Testing revealed positive results. 
