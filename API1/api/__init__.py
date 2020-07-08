@@ -5,15 +5,7 @@ app = Flask(__name__)
 
 #Helper function 
 def slot():
-    num = random.randint(1, 4)
-    if num == 1:
-        return 'coin'
-    elif num == 2:
-        return 'clover'
-    elif num == 3: 
-        return '7'
-    elif num == 4: 
-        return 'horseshoe'
+    return random.choice(['coin', 'clover', '7', 'horseshoe'])
 
 @app.route('/get/slot', methods=['GET'])
 def machine():
