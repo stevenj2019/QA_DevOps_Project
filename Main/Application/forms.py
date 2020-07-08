@@ -11,7 +11,7 @@ class RegisterForm(FlaskForm):
             Email()
         ]
     )
-    password = PasswordField('Email Address', 
+    password = PasswordField('Password', 
         validators=[
             DataRequired(), 
             Length(min=5, max=15)

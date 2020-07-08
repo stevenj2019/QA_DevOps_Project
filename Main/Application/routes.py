@@ -33,13 +33,14 @@ def login():
                 return redirect(url_for('home'))
     return render_template('login.html', title='login', form=form)
 
-@login_required
 @app.route('/home', methods=['GET'])
+@login_required
 def home():
     return render_template('home.html', title='home')
 
-@login_required
+
 @app.route('/topup', methods=['GET', 'POST'])
+@login_required
 def topup():
     form = TopUpForm()
     if form.validate_on_submit:
@@ -47,8 +48,8 @@ def topup():
         db.session.commit()
     return render_template('topup.html', title='Top-Up account', form = form)
 
-@login_required
 @app.route('/delete', methods=['GET', 'POST'])
+@login_required
 def delete():
     user = User.query.filter_by(id=current_user.id).first()
     logout_user()
@@ -56,8 +57,9 @@ def delete():
     db.session.commit()
     return redirect(url_for('register'))
 
-@login_required
+
 @app.route('/slots', methods=['GET'])
+@login_required
 def slots():
     user = User.query.filter_by(id=current_user.id).first()
     slot_data = self.client.get('http://api_1/get/slot').get_json()['machine'] # is a list
@@ -71,8 +73,9 @@ def slots():
     db.session.commit()
     return render_template('slots.html', machine = slot_data, multi = multi_data, balance = user.balance, win = win)   
 
-@login_required
+
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
