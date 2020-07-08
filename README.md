@@ -128,6 +128,16 @@ Due to how the application was coded the test will return a different percentage
 
 ## Risk Assessment 
 
+During This Sprint, Some new errors have became of interest. as well as this some previously known issues have been readdressed. 
+
+
+![](README_rss/risk_matrix_1.png)
+
+so as you can see we have revisited SSH Access and Path Traversal. SSH Access while Firewalls are effective they can restrict those with legitimate access. with the use of PKI (Public Ket Infrastructure) we can secure our environments while still allowing CI Pipeline Servers to communicate in a way that required no human interaction. 
+
+Due to the Issue we experienced during Testing we have added potentially automation Issues. rather than just dry running the application. in future we will deploy with docker and use Integration tests to ensure no bad code makes its way into a production environment. 
+
+
 ## Success and other changes 
 
 + Created a CRUD Application, Testing above 80%
