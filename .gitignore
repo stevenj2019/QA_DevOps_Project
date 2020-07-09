@@ -136,3 +136,4 @@ ENV_VARS.txt
 
 #temp entries 
 ansible/
+Jenkinsfile

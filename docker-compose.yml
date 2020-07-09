@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+    main:
+        image: sjohnson2019/main
+        build: ./Main
+        ports:
+            - target: 5000
+              published: 5000
+              protocol: tcp
+    api_1:
+        image: sjohnson2019/api_1
+        build: ./API1
+        ports:
+            - target: 5001
+              published: 5001
+              protocol: tcp
+    api_2:
+        image: sjohnson2019/api_2
+        build: ./API2
+        ports:
+            - target: 5002
+              published: 5002
+              protocol: tcp
+    api_3:
+        image: sjohnson2019/api_3
+        build: ./API3
+        ports:
+            - target: 5003
+              published: 5003
+              protocol: tcp
+    
