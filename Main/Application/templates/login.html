@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body_content %}
     <h1>Login</h1>
-    <div class="form">
+    <form method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>
             {{ form.email.label }}
@@ -28,5 +28,5 @@
         <div class='form_group'>
             {{ form.submit }}
         </div>
-    </div>
+    </form>
 {% endblock %}
