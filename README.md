@@ -157,12 +157,13 @@ We decided to refactor this with top priority. due to the the issue found during
 
 so the problematic function used to to look like this: 
 
-![]('README_rss/API_1_before.png')
+![](README_rss/API_1_before.png)
 
 we changed it to this:
 
-![]('README_rss/API_1_after.png')
+![](README_rss/API_1_after.png)
 
+/Users/steven/QAA/QA_DevOps_Project/README_rss/API_1_before.png
 This provided numerous benefits.
 
 + More Pythonic (easily readable)
