@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # QA_DevOps_Project
 
 * Docker 
@@ -186,3 +187,5 @@ This is to allow the slot machine to be easily extended to 4/5 wheel machines as
 ![](README_rss/API_3_before.png)
 
 ![](README_rss/API_3_after.png)
+
+
