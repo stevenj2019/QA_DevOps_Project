@@ -1,10 +1,9 @@
 FROM python:latest
 
 COPY . .
-COPY ../requirements.txt . 
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install flask
 
 EXPOSE 5001
 
-ENTRYPOINT [ "usr/local/bin/python3" "api.py"]
+ENTRYPOINT [ "usr/local/bin/python3", "api.py"]

@@ -22,4 +22,11 @@ services:
             - target: 5002
               published: 5002
               protocol: tcp
+    api_3:
+        image: sjohnson2019/api_3
+        build: ./API3
+        ports:
+            - target: 5003
+              published: 5003
+              protocol: tcp
     
