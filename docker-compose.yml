@@ -8,3 +8,11 @@ services:
             - target: 5000
               published: 5000
               protocol: tcp
+    API_1:
+        image: api_1
+        build: ./API1
+        ports:
+            - target: 5001
+              published: 5001
+              protocol: tcp
+    
