@@ -159,11 +159,12 @@ so the problematic function used to to look like this:
 
 ![](README_rss/API_1_before.png)
 
+as you can see the if/elif clauses are dependent on the random number generator. This means if a number isn't generated it wont be tested. 
+
 we changed it to this:
 
 ![](README_rss/API_1_after.png)
 
-/Users/steven/QAA/QA_DevOps_Project/README_rss/API_1_before.png
 This provided numerous benefits.
 
 + More Pythonic (easily readable)
