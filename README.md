@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # QA_DevOps_Project
 
 * Docker 
