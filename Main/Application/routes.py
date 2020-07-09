@@ -5,10 +5,11 @@ from Application.forms import UserForm, TopUpForm
 from Application.models import User
 import requests
 
+@app.route('/')
 @app.route('/register', methods=['GET', 'POST']) #write functionality
 def register():
     form = UserForm()
-    if form.validate_on_submit():
+    if request.method =='POST' and form.validate_on_submit():
         db.session.add(User(email=form.email.data, password=crypt.generate_password_hash(form.password.data)))
         db.session.commit
         return redirect(url_for('login'))
@@ -19,7 +20,7 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = UserForm()
-    if form.validate_on_submit():
+    if request.method =='POST' and form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user and crypt.check_password_hash(user.password, form.password.data):
             login_user(user)
