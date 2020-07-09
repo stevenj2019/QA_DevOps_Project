@@ -11,15 +11,7 @@ from Application.models import User
 from os import getenv
 
 def user_login(self):
-    response = self.client.post(
-            '/login',
-            data=dict(
-                email='sjo739273@mail.com', 
-                password='9797ifdhvsd'
-            ),
-        follow_redirects=True
-        )
-    return response
+    return self.client.post(url_for('login'),data=dict(email='sjo739273@mail.com', password='9797ifdhvsd'),follow_redirects=True)
 
 class TestBase(TestCase):
 
@@ -52,14 +44,7 @@ class TestBase(TestCase):
 class TestRoutes(TestBase):
     def test_login(self):
         self.assertIn(self.client.get(url_for('login')), 200)
-        self.assertIn(self.client.post(
-            '/login',
-            data=dict(
-                email='sjo739273@mail.com', 
-                password='9797ifdhvsd'
-            ),
-        follow_redirects=True
-        ).response_code, 200)
+        self.assertIn(self.client.post(url_for('login'),data=dict(email='sjo739273@mail.com', password='9797ifdhvsd'),follow_redirects=True).response_code, 200)
 
     def test_register(self):
         self.assertEqual(self.client.get(url_for('register')).status_code, 200)
@@ -86,7 +71,7 @@ class TestRoutes(TestBase):
         with self.client:
             user_login(self)
             self.assertEqual(self.client.get(url_for('topup')).status_code, 200)
-            self.assertIn(b'5', self.client.post('/topup', data=dict(cash=5), follow_redirects=True).data)
+            self.assertIn(b'5', self.client.post(url_for('topup'), data=dict(cash=5), follow_redirects=True).data)
 
     def test_slots(self):
         self.assertRedirects(self.client.get(url_for('slots')), url_for('login')+'?next=%2Fslots')

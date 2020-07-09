@@ -147,3 +147,42 @@ Due to the Issue we experienced during Testing we have added potentially automat
 
 + Due to initial design on service 1 pytest does not provide accurate coverage, While this has been confirmed to work, This Code will require refactoring during the next sprint to amend
 + Due to deployment not yet being implemented. Testing is non-existent within the Main Service. While the test case is written (commented out under Main/Testing/test_unit.py). We cannot confirm functionality. Manual Testing revealed positive results. 
+
+
+# Refactoring
+
+## API 1 
+
+We decided to refactor this with top priority. due to the the issue found during test 1. 
+
+so the problematic function used to to look like this: 
+
+![](README_rss/API_1_before.png)
+
+as you can see the if/elif clauses are dependent on the random number generator. This means if a number isn't generated it wont be tested. 
+
+we changed it to this:
+
+![](README_rss/API_1_after.png)
+
+This provided numerous benefits.
+
++ More Pythonic (easily readable)
++ More efficient
++ Testing Issue Resolved (see below)
+
+![](README_rss/API_1_test.png)
+
+as well as this some other things were changed
+
++ Application.models.RegisterForm changed to Application.models.UserForm. Due to being reused in other parts of the application
++ In Testing url_for() is now used consistently 
++ one-line functions used where possible
+
+we also made a change to the win function within API3. 
+
+This is to allow the slot machine to be easily extended to 4/5 wheel machines as oppose to the current 3 
+
+![](README_rss/API_3_before.png)
+
+![](README_rss/API_3_after.png)
