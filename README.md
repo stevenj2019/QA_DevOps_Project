@@ -181,7 +181,7 @@ as well as this some other things were changed
 
 we also made a change to the win function within API3. 
 
-This is to allow the slot machine to be easily extended to 4/5 wheel machines as oppose to the current 3 
+This is to allow the slot machine to be easily extended to 4/5 wheel machines as oppose to the current 3.
 
 ![](README_rss/API_3_before.png)
 
