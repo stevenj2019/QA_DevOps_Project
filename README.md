@@ -36,10 +36,6 @@ This allows the Development team to work on small features to deliver a desired 
 
 ![](README_rss/high-level-flow.png)
 
-Here is the flowchart for high level overview of the application 
-
-![](README_rss/init_data_struct.png)
-
 ## Entity Diagram
 
 ![](README_rss/Entity_Diagram.png)
@@ -186,3 +182,15 @@ This is to allow the slot machine to be easily extended to 4/5 wheel machines as
 ![](README_rss/API_3_before.png)
 
 ![](README_rss/API_3_after.png)
+
+## Docker 
+
+We will be using Docker, as well as docker-compose. This is to allow us to build our environments in an automated and consistent manner. 
+
+We will also be using Docker Image Versioning, this will allow us to quickly revert back IF a broken build makes it through Jenkins (refer to the Risk Assessment for further information)
+
+## Changes 
+
+## Updated Risk Assesment 
+
+## Changes to CI Pipeline
