@@ -135,5 +135,5 @@ README_rss/.DS_Store
 ENV_VARS.txt
 
 #temp entries 
-ansible/
 Jenkinsfile
+jenkins_login.txt
