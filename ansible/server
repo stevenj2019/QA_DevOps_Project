@@ -1,5 +1,5 @@
 [swarm_master]
-swarm_master ansible_host=10.154.0.2
+swarm_host ansible_host=10.154.0.2
 [swarm_master:vars]
 ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostChecking=no'
@@ -11,7 +11,7 @@ ansible_user=jenkins
 anisble_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key=/home/jenkins/.ssh/id_rsa
 [nginx]
-nginx ansible_host=10.154.0.13
+nginx_host ansible_host=10.154.0.13
 [nginx:vars]
 ansible_user=jenkins
 anisble_ssh_common_args='-o StrictHostKeyChecking=no'
