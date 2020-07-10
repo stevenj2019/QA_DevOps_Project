@@ -1,12 +1,6 @@
 pipeline {
     agent any 
     stages {
-        stage('Preparing Test Environment'){
-            steps {
-                sh "pip3 install -r Main/requirements.txt"
-                sh "apt-get install -y python-pytest"
-            }
-        }
         stage('Testing') {
             steps {
                 sh "pytest API1"
