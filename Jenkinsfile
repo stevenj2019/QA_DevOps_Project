@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Testing') {
             steps {
-                sh "pytest API1"
-                sh "pytest API2"
-                sh "pytest API3"
-                sh "pytest Main"
+                sh "/home/jenkins/.local/bin/pytest API1"
+                sh "/home/jenkins/.local/bin/pytest API2"
+                sh "/home/jenkins/.local/bin/pytest API3"
+                sh "py/home/jenkins/.local/bin/pytest Main"
             }
         }
         stage('build docker images'){
