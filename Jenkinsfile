@@ -15,10 +15,10 @@ pipeline {
                 sh "docker-compose push"
             }
         }
-        stage ('Deploy to Prod')
-        steps{
-            sh "ansible-playbook -i ansible/inventory ansible/playbook.yaml"
+        stage ('Deploy to Prod') {
+            steps {
+                sh "ansible-playbook -i ansible/inventory ansible/playbook.yaml"
+            }
         }
-
     }
 }
