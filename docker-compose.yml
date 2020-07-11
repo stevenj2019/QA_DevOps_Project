@@ -9,8 +9,8 @@ services:
               published: 5000
               protocol: tcp
         environment:
-          - PROD_DB_URI: "${PROD_DB_URI}"
-          - PROD_SKEY: ${PROD_SKEY}    
+            PROD_DB_URI: ${PROD_DB_URI}
+            PROD_SKEY: ${PROD_SKEY}    
     api_1:
         image: sjohnson2019/api_1:${BUILD_NUMBER}
         build: ./API1
