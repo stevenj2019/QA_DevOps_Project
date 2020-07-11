@@ -18,6 +18,7 @@ pipeline {
         stage('Deploy to Prod') {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
+                sh "docker stack deploy --compose-file docker-compose.yml stack"
             }
         }
     }
