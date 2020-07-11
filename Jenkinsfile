@@ -9,12 +9,13 @@ pipeline {
                 sh "/home/jenkins/.local/bin/pytest Main"
             }
         }
-        stage('build docker images'){
+        stage('Build Artifacts'){
             steps {
                 sh "docker-compose build"
+                sh "docker-compose push"
             }
         }
-        //stage ('docker swarm deploy')
+        //stage ('Deploy to Prod')
         //steps{
         //    sh ""
         //}
