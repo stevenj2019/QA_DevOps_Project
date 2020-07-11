@@ -133,7 +133,7 @@ dmypy.json
 README_rss/.DS_Store
 .DS_Store
 ENV_VARS.txt
+jenkins_login.txt
 
 #temp entries 
-Jenkinsfile
 jenkins_login.txt
