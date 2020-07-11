@@ -2,31 +2,31 @@ version: "3.7"
 
 services:
     main:
-        image: sjohnson2019/main
+        image: sjohnson2019/main:${BUILD_NUMBER}
         build: ./Main
         ports:
             - target: 5000
               published: 5000
               protocol: tcp
         environment:
-          - PROD_DB_URI: ${PROD_DB_URI}
-          - PROD_SKEY: ${PROD_SKEY}    
+            PROD_DB_URI: ${PROD_DB_URI}
+            PROD_SKEY: ${PROD_SKEY}    
     api_1:
-        image: sjohnson2019/api_1
+        image: sjohnson2019/api_1:${BUILD_NUMBER}
         build: ./API1
         ports:
             - target: 5001
               published: 5001
               protocol: tcp
     api_2:
-        image: sjohnson2019/api_2
+        image: sjohnson2019/api_2:${BUILD_NUMBER}
         build: ./API2
         ports:
             - target: 5002
               published: 5002
               protocol: tcp
     api_3:
-        image: sjohnson2019/api_3
+        image: sjohnson2019/api_3:${BUILD_NUMBER}
         build: ./API3
         ports:
             - target: 5003
