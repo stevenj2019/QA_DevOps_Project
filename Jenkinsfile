@@ -1,6 +1,6 @@
+String command = 'export BUILD_NUMBER = ' + System.getenv("BUILD_NUMBER")
 pipeline {
     agent any 
-    String command = 'export BUILD_NUMBER = ' + System.getenv("BUILD_NUMBER")
     stages {
         stage('Testing') {
             steps {
