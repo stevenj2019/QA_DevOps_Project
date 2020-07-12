@@ -21,14 +21,15 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = UserForm()
-    if request.method =='POST' and form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and crypt.check_password_hash(user.password, form.password.data):
-            login_user(user)
-            if request.args.get('next'):
-                return redirect(request.args.get('next'))
-            else:
-                return redirect(url_for('home'))
+    if request.method =='POST':
+        if form.validate_on_submit():
+            user = User.query.filter_by(email=form.email.data).first()
+            if user and crypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                if request.args.get('next'):
+                    return redirect(request.args.get('next'))
+                else:
+                    return redirect(url_for('home'))
     return render_template('login.html', title='login', form=form)
 
 @app.route('/home', methods=['GET'])

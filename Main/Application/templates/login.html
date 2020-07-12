@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body_content %}
     <h1>Login</h1>
-    <form method="POST">
+    <form action='/login' method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>
             {{ form.email.label }}
