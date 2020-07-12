@@ -20,8 +20,7 @@ pipeline {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
                 script {
-                    sh """ssh -i /home/jenkins/.ssh/id_rsa manager << EOF 
-                    echo BUILD_NUMBER=${BUILD_NUMBER}
+                    sh """ssh -i /home/jenkins/.ssh/id_rsa manager << EOF
                     docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack
                     exit
                     EOF"""
