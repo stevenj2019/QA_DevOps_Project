@@ -20,7 +20,7 @@ pipeline {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "scp docker-compose.yml jenkins@35.197.233.181:/home/jenkins/docker-compose.yaml"
                 sh "ssh -i /home/jenkins/.ssh/id_rsa 35.197.233.181"
-                sh "docker stack deploy --compose-file ~/docker-compose.yaml stack"
+                sh "docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack"
             }
         }
     }
