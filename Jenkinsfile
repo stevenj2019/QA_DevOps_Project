@@ -19,12 +19,8 @@ pipeline {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
-                sh "ssh -i /home/jenkins/.ssh/id_rsa master << EOF
-                docker service create --replicas 3 --name main --update-delay 5s sjohnson2019/main:${BUILD_NUMBER}
-                docker service create --replicas 2 --name api_1 --update-delay 5s sjohnson2019/api_1:${BUILD_NUMBER}
-                docker service create --replicas 2 --name api_2 --update-delay 5s sjohnson2019/api_2:${BUILD_NUMBER}
-                docker service create --replicas 2 --name api_3 --update-delay 5s sjohnson2019/api_3:${BUILD_NUMBER}
-                EOF"
+                sh "ssh -i /home/jenkins/.ssh/id_rsa master"
+                sh "docker stack deploy --compose-file docker-compose.yaml stack"
             }
         }
     }
