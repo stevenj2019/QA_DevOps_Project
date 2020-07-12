@@ -18,8 +18,8 @@ pipeline {
         stage('Deploy to Prod') {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
-                sh "scp docker-compose.yml jenkins@35.197.233.181:/home/jenkins/docker-compose.yaml"
-                sh "ssh -i /home/jenkins/.ssh/id_rsa 35.197.233.181"
+                sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
+                sh "ssh -i /home/jenkins/.ssh/id_rsa manager"
                 sh "docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack"
             }
         }
