@@ -18,9 +18,7 @@ pipeline {
         stage('Deploy to Prod') {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
-                sh "echo BUILD_NUMBER=${BUILD_NUMBER}\n > .env"
-                sh "echo PROD_SKEY=${PROD_SKEY}\n > .env"
-                sh "echo PROD_DB_URI=${PROD_DB_URT}\n > .env"
+                sh "echo BUILD_NUMBER=${BUILD_NUMBER} > .env"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
                 sh "scp .env jenkins@manager:/home/jenkins/.env"
                 script {
