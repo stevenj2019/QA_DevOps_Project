@@ -1,5 +1,5 @@
 [managers]
-manager ansible_host=35.197.233.181
+manager ansible_host=34.105.223.167
 [managers:vars]
 ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
