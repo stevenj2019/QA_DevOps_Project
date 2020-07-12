@@ -19,7 +19,12 @@ pipeline {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
-                sh "ssh -i /home/jenkins/.ssh/id_rsa manager && docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack"
+                script {
+                    sh """ssh -tt login@host << EOF 
+                    docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack
+                    exit
+                    EOF"""
+                }
                 //sh "docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack"
             }
         }
