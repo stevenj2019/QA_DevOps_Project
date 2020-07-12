@@ -1,11 +1,11 @@
 [managers]
-manager ansible_host=10.154.0.2
+manager ansible_host=35.197.233.181
 [managers:vars]
 ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
 [workers]
-workers-1 ansible_host=10.154.0.3
+workers-1 ansible_host=34.105.191.21
 [workers:vars]
 ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
