@@ -9,10 +9,11 @@ import requests
 @app.route('/register', methods=['GET', 'POST']) #write functionality
 def register():
     form = UserForm()
-    if request.method =='POST' and form.validate_on_submit():
-        db.session.add(User(email=form.email.data, password=crypt.generate_password_hash(form.password.data)))
-        db.session.commit
-        return redirect(url_for('login'))
+    if request.method =='POST': 
+        if form.validate_on_submit():
+            db.session.add(User(email=form.email.data, password=crypt.generate_password_hash(form.password.data)))
+            db.session.commit
+            return redirect(url_for('login'))
     return render_template('register.html', title='register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
