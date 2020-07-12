@@ -20,7 +20,7 @@ pipeline {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "echo BUILD_NUMBER=${BUILD_NUMBER} > .env"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
-                sh "scp .env jenkins@manager:/gome/jenkins/.env"
+                sh "scp .env jenkins@manager:/home/jenkins/.env"
                 script {
                     sh """ssh -i /home/jenkins/.ssh/id_rsa  manager << EOF
                     env BUILDNUMBER=${BUILD_NUMBER}
