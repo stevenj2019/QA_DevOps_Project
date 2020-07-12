@@ -1,5 +1,6 @@
 pipeline {
     agent any 
+    String command = 'export BUILD_NUMBER = ' + System.getenv("BUILD_NUMBER")
     stages {
         stage('Testing') {
             steps {
@@ -19,7 +20,6 @@ pipeline {
             steps {
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory ansible/playbook.yaml"
                 sh "scp docker-compose.yml jenkins@manager:/home/jenkins/docker-compose.yaml"
-                String command = 'export BUILD_NUMBER = ' + System.getenv("BUILD_NUMBER")
                 script {
                     sh """ssh -i /home/jenkins/.ssh/id_rsa -o SendEnv=${BUILD_NUMBER} manager << EOF
                     ${command}
