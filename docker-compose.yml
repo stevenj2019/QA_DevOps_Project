@@ -4,10 +4,6 @@ services:
     main:
         image: sjohnson2019/main:${BUILD_NUMBER}
         build: ./Main
-        context: .
-        args:
-            PROD_DB_URI: ${PROD_DB_URI}
-            PROD_SKEY: ${PROD_SKEY}
         ports:
             - target: 5000
               published: 5000
