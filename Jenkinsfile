@@ -24,6 +24,7 @@ pipeline {
                 script {
                     sh """ssh -i /home/jenkins/.ssh/id_rsa  manager << EOF
                     env BUILD_NUMBER=${BUILD_NUMBER}
+                    export BUILD_NUMBER=${BUILD_NUMBER}
                     docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack
                     exit
                     EOF"""
