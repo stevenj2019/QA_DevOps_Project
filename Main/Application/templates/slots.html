@@ -6,9 +6,9 @@
     <h1> You Lost </h1>
 {% endif %}
 <div>
-    {{% for slot in machine %}}
+    {% for slot in machine %}
         <a>{{ slot }}</a>
-    {{% endfor %}}
+    {% endfor %}
     <a> Your current balance is now {{ balance }}</a>
 </div>
 {% endblock %}
