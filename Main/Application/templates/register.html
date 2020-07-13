@@ -2,7 +2,7 @@
 {% block body_content %}
     <h1>Registration Page</h1>
     <p>Sign up here!</p>
-    <form method="POST">
+    <form action="/register" method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>
             {{ form.email.label }}

@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block body_content %}
     <h1> Top-Up your account </h1>
-    <div class='form'>
+    <form action='/topup' method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>
+            {{ form.cash.label }}
             {{ form.cash }}
-            {{ form.cash.data }}
             {% if form.cash.errors %}
                 <div class='errors'>
                     {% for error in form.cash.errors %}
@@ -14,6 +14,7 @@
                 </div>
             {% endif %}
         </div>
-    </div>
+        {{ form.submit }}
+    </form>
 
 {% endblock %}
