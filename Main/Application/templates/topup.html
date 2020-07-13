@@ -4,8 +4,8 @@
     <form action='/topup' method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>
+            {{ form.cash.label }}
             {{ form.cash }}
-            {{ form.cash.data }}
             {% if form.cash.errors %}
                 <div class='errors'>
                     {% for error in form.cash.errors %}

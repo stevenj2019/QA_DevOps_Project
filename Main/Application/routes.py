@@ -43,9 +43,10 @@ def home():
 @login_required
 def topup():
     form = TopUpForm()
-    if form.validate_on_submit():
-        current_user.balance = current_user.balance + int(form.cash.data)
-        db.session.commit()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            current_user.balance = current_user.balance + int(form.cash.data)
+            db.session.commit()
     return render_template('topup.html', title='Top-Up account', form = form)
 
 @app.route('/delete', methods=['GET', 'POST'])
