@@ -65,7 +65,7 @@ def slots():
     user = User.query.filter_by(id=current_user.id).first()
     slot_data = requests.get('http://api_1:5001/get/slot').json()['machine']
     multi_data = requests.get('http://api_2:5002/get/multi').json()['multiply']
-    slot_value = requests.post('http://api_3:5003/get/total', json={'slot':slot_data, 'multiple':multi_data}).get_json()['TOTAL'] # is an int
+    slot_value = requests.post('http://api_3:5003/get/total', json={'slot':slot_data, 'multiple':multi_data}).json()['TOTAL'] # is an int
     win = (slot_value != 0)
     if win == False:
         user.balance = user.balance - 1
