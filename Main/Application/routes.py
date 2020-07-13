@@ -11,7 +11,8 @@ def register():
     form = UserForm()
     if request.method == 'POST': 
         if form.validate_on_submit():
-            db.session.add(User(email=form.email.data, password=crypt.generate_password_hash(form.password.data), balance=5))
+            user = User(email=form.email.data, password=crypt.generate_password_hash(form.password.data), balance=5)
+            db.session.add(user)
             db.session.commit
             return redirect(url_for('login'))
     return render_template('register.html', title='register', form=form)
