@@ -6,6 +6,8 @@
 * Selenium 
 * GCP 
 * Jenkins 
++ Ansible 
++ Nginx
 
 # Helpful Links 
 
@@ -36,9 +38,15 @@ This allows the Development team to work on small features to deliver a desired 
 
 ![](README_rss/high-level-flow.png)
 
-Here is the flowchart for high level overview of the application 
+## Infrastructure Design 
 
-![](README_rss/init_data_struct.png)
+![](README_rss/Infra-Diagram.png)
+
+There are multiple points to discuss with this diagram. 
+
+1. The CI Pipeline and the Ansible Deployment Server will be the same machine. This is due to ease of setup during the initial deployment. The Docker Swarm Manager is a separate machine. 
+2. The Swarm Workers and Swarm Master are configured the same (with the exception of the docker swarm roles)
+3. Nginx will act as a load balancer as well as a reverse proxy in this Infrastructure
 
 ## Entity Diagram
 
@@ -186,3 +194,26 @@ This is to allow the slot machine to be easily extended to 4/5 wheel machines as
 ![](README_rss/API_3_before.png)
 
 ![](README_rss/API_3_after.png)
+
+## Docker 
+
+We will be using Docker, as well as docker-compose. This is to allow us to build our environments in an automated and consistent manner. 
+
+We will also be using Docker Image Versioning, this will allow us to quickly revert back IF a broken build makes it through Jenkins (refer to the Risk Assessment for further information)
+
+## Changes 
+
+1. ![](README_rss/old_CI-CD.png)
+
+was changed to 
+
+![](README_rss/CI-CD.png)
+
+This is due partially to a change of technology. 
+As well as this Configuration Management was deemed to be necessary due to the issues inconsistent host can cause (check Risk Assessment for updates)
+
+2. The Following entries were added into the Risk Assesstment
+
+![](README_rss/risk_matrix_2.png)
+
+This shows new risks we associate with the project. it is mostly involved in our infrastructure and capacity. we have completed the leg work with docker to allow us to containerise these however we now need to create a Ansible Playbook to allow us to ensure our infrastructure is consistent whenever we deploy or whenever we need to provision a new node 
