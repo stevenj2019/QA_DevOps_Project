@@ -13,7 +13,7 @@ def register():
         if form.validate_on_submit():
             user = User(email=form.email.data, password=crypt.generate_password_hash(form.password.data), balance=5)
             db.session.add(user)
-            db.session.commit
+            db.session.commit()
             return redirect(url_for('login'))
     return render_template('register.html', title='register', form=form)
 
